@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoCare — Gestão e Manutenção de Motocicletas</title>
+  <!-- Funciona tanto na mesma pasta quanto dentro da subpasta css/ -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>🏍️ MotoCare</h1>
+    <span id="status-conexao" class="badge online" aria-live="polite">Online</span>
+  </header>
+
+  <main class="app-container">
+    <!-- TELA 1: INÍCIO -->
+    <section id="tela-inicio" class="tela ativa" aria-labelledby="titulo-inicio">
+      <h2 id="titulo-inicio">Painel da Motocicleta</h2>
+      <div class="card destaque">
+        <p class="rotulo-card">Hodômetro Atual</p>
+        <p id="km-atual" class="valor-grande">15.420 km</p>
+      </div>
+
+      <div class="card alerta">
+        <h3>⚠️ Alerta de Manutenção</h3>
+        <p id="alerta-revisao">Próxima revisão preventiva em <strong>16.000 km</strong> (Troca de óleo).</p>
+      </div>
+
+      <div class="resumo-grid">
+        <div class="card">
+          <h3>⛽ Combustível</h3>
+          <p id="gasto-combustivel">R$ 150,00</p>
+        </div>
+        <div class="card">
+          <h3>🔧 Manutenções</h3>
+          <p id="gasto-manutencao">R$ 450,00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA 2: AÇÃO PRINCIPAL (FORMULÁRIO) -->
+    <section id="tela-registrar" class="tela" aria-labelledby="titulo-registrar">
+      <h2 id="titulo-registrar">Novo Registro</h2>
+      <form id="form-registro" novalidate>
+        <div class="campo-grupo">
+          <label for="tipo">Tipo de Registro *</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione uma categoria...</option>
+            <option value="oleo">Troca de Óleo</option>
+            <option value="combustivel">Abastecimento</option>
+            <option value="manutencao">Manutenção Geral</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="quilometragem">Quilometragem Atual (km) *</label>
+          <input type="number" id="quilometragem" name="quilometragem" placeholder="Ex: 15500" min="0" required>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="valor">Valor Gasto (R$) *</label>
+          <input type="number" id="valor" name="valor" placeholder="Ex: 45.90" step="0.01" min="0" required>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="observacoes">Observações</label>
+          <textarea id="observacoes" name="observacoes" rows="3" placeholder="Ex: Óleo 10W30 Semissintético"></textarea>
+        </div>
+
+        <div class="campo-grupo recursos-dispositivo">
+          <label for="foto-hodometro" class="btn-secundario">📷 Foto do Hodômetro / Nota</label>
+          <input type="file" id="foto-hodometro" accept="image/*" capture="environment" hidden>
+          <button type="button" id="btn-localizacao" class="btn-secundario">📍 Capturar Localização</button>
+          <p id="info-recurso" class="texto-apoio"></p>
+        </div>
+
+        <p id="mensagem-feedback" class="feedback" role="alert"></p>
+        <button type="submit" class="btn-primario">Salvar Registro</button>
+      </form>
+    </section>
+
+    <!-- TELA 3: LISTAGEM E ACOMPANHAMENTO -->
+    <section id="tela-historico" class="tela" aria-labelledby="titulo-historico">
+      <h2 id="titulo-historico">Histórico e Acompanhamento</h2>
+      <div class="filtros" role="group" aria-label="Filtrar histórico">
+        <button type="button" class="chip ativo" data-filtro="todos">Todos</button>
+        <button type="button" class="chip" data-filtro="oleo">Troca de Óleo</button>
+        <button type="button" class="chip" data-filtro="combustivel">Combustível</button>
+        <button type="button" class="chip" data-filtro="manutencao">Manutenção</button>
+      </div>
+
+      <div id="lista-registros" class="lista-cards">
+        <article class="card item-historico" data-categoria="oleo">
+          <div>
+            <h3>🔧 Troca de Óleo</h3>
+            <p>12/11/2026 • 15.420 km • <strong>R$ 45,00</strong></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TELA 4: INFORMAÇÕES SOBRE O PROJETO -->
+    <section id="tela-sobre" class="tela" aria-labelledby="titulo-sobre">
+      <h2 id="titulo-sobre">Sobre o Projeto</h2>
+      <div class="card">
+        <h3>Instituição e Disciplina</h3>
+        <p><strong>Centro Universitário Afya — Ji-Paraná/RO</strong></p>
+        <p>Disciplina: Introdução ao Desenvolvimento para Dispositivos Móveis</p>
+        <p>Professor: Romário Vitorino Ferreira</p>
+      </div>
+
+      <div class="card">
+        <h3>Integrantes do Grupo</h3>
+        <ul>
+          <li>Matheus Henrique Mereles Oliveira</li>
+          <li>Matheus Barbosa Gaspar</li>
+          <li>Jaína Klitzke</li>
+          <li>Pedro Henrique Rodrigues</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Aviso Legal e Ético (LGPD)</h3>
+        <p>Aplicação de finalidade exclusivamente acadêmica. Utiliza dados fictícios e armazena informações apenas localmente no dispositivo do usuário, sem coleta de dados pessoais ou financeiros reais.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="barra-navegacao" aria-label="Navegação principal">
+    <button type="button" class="nav-item ativo" data-alvo="tela-inicio">🏠 Início</button>
+    <button type="button" class="nav-item" data-alvo="tela-registrar">➕ Registrar</button>
+    <button type="button" class="nav-item" data-alvo="tela-historico">📋 Histórico</button>
+    <button type="button" class="nav-item" data-alvo="tela-sobre">ℹ️ Sobre</button>
+  </nav>
+
+  <!-- Funciona tanto na mesma pasta quanto dentro da subpasta js/ -->
+  <script src="app.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
