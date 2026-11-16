@@ -39,3 +39,10 @@ Testar o modo offline
 Abra o app com o servidor local e deixe carregar uma vez.
 No Chrome, aperte F12 → aba Application → Service Workers.
 Marque Offline e recarregue a página.
+
+## Integrantes
+
+Matheus Barbosa Gaspar
+Matheus Mereles
+Jaina Klitzke
+Pedro Henrique Rodrigues
