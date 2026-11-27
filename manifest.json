@@ -1,0 +1,26 @@
+{
+  "name": "MotoCare — Gestão e Manutenção de Motocicletas",
+  "short_name": "MotoCare",
+  "description": "Registre abastecimentos e manutenções da sua moto, acompanhe gastos e consulte recalls.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1f5f9",
+  "theme_color": "#172033",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
